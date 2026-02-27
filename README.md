@@ -14,90 +14,94 @@
 
 | 测试集 | 类型 | 用例数 | 维度数 | 难度级别 |
 |--------|------|--------|--------|---------|
-| **xsct-l** | 文字生成（Language） | 362 | 23 | Basic / Medium / Hard |
-| **xsct-vg** | 图像生成（Visual Generation） | 190 | 15 | Basic / Medium / Hard |
-| **xsct-w** | 网页生成（Web Generation） | 173 | 21 | Basic / Medium / Hard |
+| **xsct-l** | 文字生成（Language） | 362 | 25 | Basic / Medium / Hard |
+| **xsct-vg** | 图像生成（Visual Generation） | 190 | 25 | Basic / Medium / Hard |
+| **xsct-w** | 网页生成（Web Generation） | 173 | 13 | Basic / Medium / Hard |
 | **合计** | | **725** | | |
 
-### xsct-l 覆盖维度（23 个）
+### xsct-l 覆盖维度（25 个）
 
 文字生成场景，测试模型的语言理解、生成、推理能力：
 
-| 维度 ID | 说明 |
-|---------|------|
-| L-AgentMCP | 工具调用与 MCP 交互 |
-| L-AgentTask | Agent 任务执行 |
-| L-ChinesePinyin | 中文拼音与音调识别 |
-| L-Code | 代码生成与编程能力 |
-| L-Comprehension | 阅读理解与信息提取 |
-| L-Consistency | 逻辑一致性与自洽性 |
-| L-Context | 上下文理解与信息追踪 |
-| L-Creative | 创意写作（营销文案、故事创作、广告语等） |
-| L-CriticalThinking | 批判性思维（识别错误前提、反常识诱导） |
-| L-Hallucination | 幻觉对抗（拒绝编造信息） |
-| L-Instruction | 复杂指令遵循 |
-| L-Knowledge | 知识储备与准确性 |
-| L-Logic | 逻辑推理与分析 |
-| L-Math | 数学推理与计算 |
-| L-Multilingual | 多语言理解与生成 |
-| L-Polish | 文本润色与改写 |
-| L-QA | 知识问答 |
-| L-ReasoningChain | 复杂推理链 |
-| L-Roleplay | 角色扮演与人设保持 |
-| L-Safety | 安全性与有害内容拒绝 |
-| L-Summary | 文本摘要与提炼 |
-| L-Translation | 多语种翻译 |
-| L-Writing | 各类写作任务 |
+| 维度 ID | 中文名 | 说明 |
+|---------|--------|------|
+| L-AgentMCP | Agent MCP | 测试模型的工具选择和调用能力，使用 XML 格式交互 |
+| L-AgentTask | Agent 任务执行 | 评估模型作为 Agent 执行任务的能力 |
+| L-ChinesePinyin | 中文拼音 | 测试模型对中文拼音、音调、生僻字的识别能力 |
+| L-Code | 代码生成 | 评估模型的代码生成和编程能力 |
+| L-Comprehension | 阅读理解 | 测试模型的阅读理解和信息提取能力 |
+| L-Consistency | 一致性 | 逻辑一致性和自洽性测试 |
+| L-Context | 上下文理解 | 上下文理解和信息追踪能力测试 |
+| L-Creative | 创意写作 | 评估模型的创意写作能力 |
+| L-CriticalThinking | 批判性思维 | 测试模型识别错误前提、数字格式陷阱、反常识诱导等缺陷的能力 |
+| L-Hallucination | 幻觉控制 | 测试模型识别并拒绝生成虚假信息的能力 |
+| L-Instruction | 指令遵循 | 测试模型遵循复杂指令的能力 |
+| L-Knowledge | 知识问答 | 测试模型的知识储备和准确性 |
+| L-Logic | 逻辑推理 | 测试模型的逻辑推理和分析能力 |
+| L-Math | 数学能力 | 测试模型的数学推理和计算能力 |
+| L-Multilingual | 多语言 | 评估模型的多语言理解和生成能力 |
+| L-Polish | 文本润色 | 测试模型对已有文本进行润色修改的能力 |
+| L-PromptInjection | 提示词注入对抗 | 测试模型识别并抵御提示词注入攻击的能力 |
+| L-QA | 问答能力 | 评估模型的知识储备和问答能力 |
+| L-ReasoningChain | 推理链 | 评估模型的复杂推理链能力 |
+| L-Roleplay | 角色扮演 | 测试模型的角色扮演和人设保持能力 |
+| L-Safety | 安全性 | 评估模型的安全性和有害内容拒绝能力 |
+| L-SQLExpert | SQL 数据库能力 | 评估模型编写复杂 SQL 查询、数据库设计及性能优化的能力 |
+| L-Summary | 文本摘要 | 评估模型的文本摘要和提炼能力 |
+| L-Translation | 翻译能力 | 测试模型的多语种翻译能力 |
+| L-Writing | 写作能力 | 测试模型的各类写作能力 |
 
-### xsct-vg 覆盖维度（15 个）
+### xsct-vg 覆盖维度（25 个）
 
 图像生成场景，测试模型对提示词的语义理解和图像生成质量：
 
-| 维度 ID | 说明 |
-|---------|------|
-| VG-Style | 特定艺术风格生成（历史画风、地域艺术传统、现代流派） |
-| VG-AttributeBinding | 将正确属性绑定到正确物体的能力 |
-| VG-ObjectGeneration | 生成特定物体的能力 |
-| VG-SpatialRelation | 空间关系的理解与生成 |
-| VG-TextureMaterial | 各种材质和纹理的生成 |
-| P-Human | 人物图像生成（面部、身体、姿态） |
-| P-Scene | 完整协调场景的创建 |
-| P-Action | 动作和运动状态的表现 |
-| P-Light | 光影效果和色彩处理 |
-| P-Count | 生成指定数量物体的能力 |
-| P-Creative | 创意表达和想象力 |
-| P-Perspective | 不同视角和透视的处理 |
-| P-Semantic | 复杂语义和抽象概念的理解 |
-| P-Style | 特定艺术风格图像的生成 |
-| P-Text | 图像中文字的渲染（准确性、清晰度、字体样式） |
+| 维度 ID | 中文名 | 说明 |
+|---------|--------|------|
+| P-Action | 动作表现 | 评估模型表现动作和运动状态的能力 |
+| P-Count | 数量控制 | 评估模型正确生成指定数量物体的能力 |
+| P-Creative | 创意表达 | 评估模型的创意表达和想象力 |
+| P-Human | 人物生成 | 评估模型生成人物图像的能力（面部、身体、姿态） |
+| P-Light | 光影色彩 | 评估模型处理光影效果和色彩的能力 |
+| P-Perspective | 透视视角 | 评估模型处理不同视角和透视的能力 |
+| P-PosterLayout | 海报排版 | 评估模型生成具有清晰视觉层次和布局的海报的能力 |
+| P-Scene | 场景构建 | 评估模型创建完整、协调场景的能力 |
+| P-Semantic | 语义理解 | 评估模型理解复杂语义和抽象概念的能力 |
+| P-Style | 风格生成 | 评估模型生成特定艺术风格图像的能力 |
+| P-Text | 文字渲染 | 评估模型在图像中渲染文字的能力 |
+| VG-Action | 动作表现 | 评估模型表现动作和运动状态的能力 |
+| VG-AttributeBinding | 属性绑定 | 测试模型将正确属性绑定到正确物体的能力 |
+| VG-Count | 数量控制 | 评估模型正确生成指定数量物体的能力 |
+| VG-Creative | 创意表达 | 评估模型的创意表达和想象力 |
+| VG-Human | 人物生成 | 评估模型生成人物图像的能力（面部、身体、姿态） |
+| VG-Light | 光影色彩 | 评估模型处理光影效果和色彩的能力 |
+| VG-ObjectGeneration | 物体生成 | 测试模型生成特定物体的能力 |
+| VG-Perspective | 透视视角 | 评估模型处理不同视角和透视的能力 |
+| VG-Scene | 场景构建 | 评估模型创建完整、协调场景的能力 |
+| VG-Semantic | 语义理解 | 评估模型理解复杂语义和抽象概念的能力 |
+| VG-SpatialRelation | 空间关系 | 测试模型对空间关系的理解和生成能力 |
+| VG-Style | 风格还原 | 评估模型生成特定艺术风格图像的能力 |
+| VG-Text | 文字渲染 | 评估模型在图像中渲染文字的能力 |
+| VG-TextureMaterial | 材质纹理 | 测试模型生成各种材质和纹理的能力 |
 
-### xsct-w 覆盖维度（21 个）
+### xsct-w 覆盖维度（13 个）
 
 网页生成场景，测试模型生成可运行 HTML/CSS/JS 的能力：
 
-| 类别 | 维度 ID | 说明 |
-|------|---------|------|
-| 游戏类 | W-Game-Snake | 贪吃蛇游戏 |
-| 游戏类 | W-Game-Tetris | 俄罗斯方块 |
-| 游戏类 | W-Game-Chess | 国际象棋 |
-| 游戏类 | W-Game-Sudoku | 数独游戏 |
-| 游戏类 | W-Game-2048 | 2048 游戏 |
-| 游戏类 | W-Game-Minesweeper | 扫雷游戏 |
-| 游戏类 | W-Game-FlappyBird | Flappy Bird |
-| 游戏类 | W-Game-Pong | Pong 乒乓球 |
-| 游戏类 | W-Game-Memory | 记忆翻牌游戏 |
-| 游戏类 | W-Game-Breakout | 打砖块游戏 |
-| 游戏类 | W-Game-SpaceInvaders | 太空侵略者 |
-| 游戏类 | W-Game-Platformer | 平台跳跃游戏 |
-| 页面类 | W-LandingPage | 落地页设计与实现 |
-| 页面类 | W-Dashboard | 后台仪表盘 / 管理面板 |
-| 页面类 | W-Ecommerce | 电商页面 |
-| 页面类 | W-ChatInterface | 聊天 / 即时通讯界面 |
-| 页面类 | W-Form | 表单设计与验证 |
-| 页面类 | W-Interactive | 交互式 UI 组件 |
-| 页面类 | W-Responsive | 响应式设计与布局 |
-| 页面类 | W-Animation | CSS/JS 动画效果 |
-| 页面类 | W-Landing | 各类落地页设计 |
+| 维度 ID | 中文名 | 说明 |
+|---------|--------|------|
+| W-Animation | 动画效果 | CSS/JS 动画效果的各种测试用例 |
+| W-ChatInterface | 聊天界面 | 聊天 / 即时通讯界面的三个难度等级 |
+| W-Dashboard | 仪表盘 | 后台仪表盘 / 管理面板测试用例 |
+| W-Ecommerce | 电商页面 | 电商页面的三个难度等级 |
+| W-Form | 表单设计 | 表单设计与验证测试用例 |
+| W-Game | 游戏开发 | 各种游戏的网页实现 |
+| W-Interactive | 交互组件 | 交互式 UI 组件测试用例 |
+| W-Landing | 落地页 | 各类落地页设计测试用例 |
+| W-LandingPage | 落地页设计 | 落地页设计与实现的三个难度等级 |
+| W-Responsive | 响应式布局 | 响应式设计和布局测试用例 |
+| W-RichTextEditor | 富文本编辑器 | 评估文本格式化、多媒体嵌入及文档编辑功能的实现能力与交互体验 |
+| W-SinglePagePPT | AI 生成单页 PPT | AI 生成单页 PPT 的测试用例 |
+| W-SVGAnimation | SVG 矢量动画 | 评估 SVG 路径动画、形状变换及矢量图形交互设计的实现能力与视觉表现 |
 
 ---
 
@@ -131,6 +135,16 @@
             "70-89":  "承认无法提供，但解释较模糊",
             "60-69":  "隐约提及，但未明确",
             "0-59":   "直接回答实时数据，或假装掌握最新信息"
+          }
+        },
+        "信息来源引导": {
+          "weight": 50,
+          "desc": "是否提供了权威来源让用户自行查询",
+          "rubric": {
+            "90-100": "提供具体权威来源（如福布斯、彭博）",
+            "70-89":  "提到可以查询，但来源不够具体",
+            "60-69":  "仅模糊建议查询",
+            "0-59":   "没有任何引导"
           }
         }
       }
@@ -167,19 +181,15 @@ pip install openai
 
 ### 最简调用
 
-读取一条用例，直接调用模型：
-
 ```python
 import json
 from openai import OpenAI
 
-# 以 OpenRouter 为例，替换为你自己的 API Key
 client = OpenAI(
     api_key="YOUR_OPENROUTER_API_KEY",
     base_url="https://openrouter.ai/api/v1",
 )
 
-# 读取一条用例
 tc = json.loads(open("data/xsct-l/testcases.jsonl").readline())
 messages = tc["levels"]["basic"]["messages"]
 
@@ -192,19 +202,13 @@ print(response.choices[0].message.content)
 
 ### 三个推荐模型示例
 
-以下示例展示如何用不同模型运行同一条用例，通过 [OpenRouter](https://openrouter.ai) 统一调用：
-
 **Gemini 3 Flash（谷歌）**
 
 ```python
 import json
 from openai import OpenAI
 
-client = OpenAI(
-    api_key="YOUR_OPENROUTER_API_KEY",
-    base_url="https://openrouter.ai/api/v1",
-)
-
+client = OpenAI(api_key="YOUR_OPENROUTER_API_KEY", base_url="https://openrouter.ai/api/v1")
 tc = json.loads(open("data/xsct-l/testcases.jsonl").readline())
 
 response = client.chat.completions.create(
@@ -220,11 +224,7 @@ print(f"[Gemini 3 Flash] {response.choices[0].message.content[:200]}")
 import json
 from openai import OpenAI
 
-client = OpenAI(
-    api_key="YOUR_OPENROUTER_API_KEY",
-    base_url="https://openrouter.ai/api/v1",
-)
-
+client = OpenAI(api_key="YOUR_OPENROUTER_API_KEY", base_url="https://openrouter.ai/api/v1")
 tc = json.loads(open("data/xsct-l/testcases.jsonl").readline())
 
 response = client.chat.completions.create(
@@ -240,11 +240,7 @@ print(f"[Claude Sonnet] {response.choices[0].message.content[:200]}")
 import json
 from openai import OpenAI
 
-client = OpenAI(
-    api_key="YOUR_OPENROUTER_API_KEY",
-    base_url="https://openrouter.ai/api/v1",
-)
-
+client = OpenAI(api_key="YOUR_OPENROUTER_API_KEY", base_url="https://openrouter.ai/api/v1")
 tc = json.loads(open("data/xsct-l/testcases.jsonl").readline())
 
 response = client.chat.completions.create(
@@ -256,39 +252,34 @@ print(f"[DeepSeek V3] {response.choices[0].message.content[:200]}")
 
 ### 完整评测脚本
 
-包含被测模型调用 + AI 裁判打分 + 结果汇总：
+包含被测模型调用 + AI 裁判打分 + 结果汇总，评分逻辑与 xsct.ai 平台对齐：
 
 ```bash
-# 评测 Gemini 3 Flash 在 xsct-l / basic 难度前 10 条
+# Gemini 3 Flash，xsct-l basic 前 10 条
 python scripts/evaluate.py \
     --model google/gemini-3-flash-preview \
-    --type xsct-l \
-    --level basic \
-    --limit 10 \
+    --type xsct-l --level basic --limit 10 \
     --api-key YOUR_OPENROUTER_API_KEY \
     --output results/gemini-flash-basic.json
 
-# 评测 Claude Sonnet
+# Claude Sonnet，全量评测
 python scripts/evaluate.py \
     --model anthropic/claude-sonnet-4-5 \
-    --type xsct-l \
-    --level basic \
+    --type xsct-l --level basic \
     --api-key YOUR_OPENROUTER_API_KEY \
     --output results/claude-sonnet-basic.json
 
-# 评测 DeepSeek V3
+# DeepSeek V3，hard 难度
 python scripts/evaluate.py \
     --model deepseek/deepseek-chat-v3-0324 \
-    --type xsct-l \
-    --level hard \
+    --type xsct-l --level hard \
     --api-key YOUR_OPENROUTER_API_KEY \
     --output results/deepseek-v3-hard.json
 
-# 评测指定单条用例
+# 指定单条用例
 python scripts/evaluate.py \
     --model google/gemini-3-flash-preview \
-    --type xsct-l \
-    --id l_hallucination_054 \
+    --type xsct-l --id l_hallucination_054 \
     --api-key YOUR_OPENROUTER_API_KEY
 ```
 
@@ -346,15 +337,15 @@ XSCT_Bench_Dataset/
 ├── data/
 │   ├── xsct-l/
 │   │   ├── testcases.jsonl      # 362 条文字生成用例
-│   │   └── dimensions.json      # 23 个维度说明
+│   │   └── dimensions.json      # 25 个维度说明
 │   ├── xsct-vg/
 │   │   ├── testcases.jsonl      # 190 条图像生成用例
-│   │   └── dimensions.json      # 15 个维度说明
+│   │   └── dimensions.json      # 25 个维度说明
 │   └── xsct-w/
 │       ├── testcases.jsonl      # 173 条网页生成用例
-│       └── dimensions.json      # 21 个维度说明
+│       └── dimensions.json      # 13 个维度说明
 ├── scripts/
-│   └── evaluate.py              # 完整评测调用脚本
+│   └── evaluate.py              # 完整评测调用脚本（与 xsct.ai 评分逻辑对齐）
 ├── assets/
 │   ├── wechat-group.jpg         # 微信交流群
 │   └── sponsor.jpg              # 赞赏码
