@@ -218,7 +218,7 @@ response = client.chat.completions.create(
 print(f"[Gemini 3 Flash] {response.choices[0].message.content[:200]}")
 ```
 
-**Claude Sonnet（Anthropic）**
+**Claude Sonnet 4.6（Anthropic）**
 
 ```python
 import json
@@ -228,13 +228,13 @@ client = OpenAI(api_key="YOUR_OPENROUTER_API_KEY", base_url="https://openrouter.
 tc = json.loads(open("data/xsct-l/testcases.jsonl").readline())
 
 response = client.chat.completions.create(
-    model="anthropic/claude-sonnet-4-5",
+    model="anthropic/claude-sonnet-4-6",
     messages=tc["levels"]["basic"]["messages"],
 )
-print(f"[Claude Sonnet] {response.choices[0].message.content[:200]}")
+print(f"[Claude Sonnet 4.6] {response.choices[0].message.content[:200]}")
 ```
 
-**DeepSeek V3（深度求索）**
+**Kimi k2.5（月之暗面）**
 
 ```python
 import json
@@ -244,10 +244,10 @@ client = OpenAI(api_key="YOUR_OPENROUTER_API_KEY", base_url="https://openrouter.
 tc = json.loads(open("data/xsct-l/testcases.jsonl").readline())
 
 response = client.chat.completions.create(
-    model="deepseek/deepseek-chat-v3-0324",
+    model="moonshot/kimi-k2-5",
     messages=tc["levels"]["basic"]["messages"],
 )
-print(f"[DeepSeek V3] {response.choices[0].message.content[:200]}")
+print(f"[Kimi k2.5] {response.choices[0].message.content[:200]}")
 ```
 
 ### 完整评测脚本
@@ -262,19 +262,19 @@ python scripts/evaluate.py \
     --api-key YOUR_OPENROUTER_API_KEY \
     --output results/gemini-flash-basic.json
 
-# Claude Sonnet，全量评测
+# Claude Sonnet 4.6，全量评测
 python scripts/evaluate.py \
-    --model anthropic/claude-sonnet-4-5 \
+    --model anthropic/claude-sonnet-4-6 \
     --type xsct-l --level basic \
     --api-key YOUR_OPENROUTER_API_KEY \
     --output results/claude-sonnet-basic.json
 
-# DeepSeek V3，hard 难度
+# Kimi k2.5，hard 难度
 python scripts/evaluate.py \
-    --model deepseek/deepseek-chat-v3-0324 \
+    --model moonshot/kimi-k2-5 \
     --type xsct-l --level hard \
     --api-key YOUR_OPENROUTER_API_KEY \
-    --output results/deepseek-v3-hard.json
+    --output results/kimi-k2-5-hard.json
 
 # 指定单条用例
 python scripts/evaluate.py \
