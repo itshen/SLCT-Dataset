@@ -403,26 +403,26 @@ def main():
       --type xsct-l --level basic --limit 5 \\
       --api-key sk-or-xxx
 
-  # Claude Sonnet，全量评测，结果写文件
+  # Claude Sonnet 4.6，全量评测，结果写文件
   python scripts/evaluate.py \\
-      --model anthropic/claude-sonnet-4-5 \\
+      --model anthropic/claude-sonnet-4-6 \\
       --type xsct-l --level basic \\
       --api-key sk-or-xxx \\
       --output results/claude-sonnet-basic.json
 
-  # DeepSeek V3，指定单条
+  # Kimi k2.5，指定单条
   python scripts/evaluate.py \\
-      --model deepseek/deepseek-chat-v3-0324 \\
+      --model moonshot/kimi-k2-5 \\
       --type xsct-l \\
       --id l_hallucination_054 \\
       --api-key sk-or-xxx
 
   # 自定义裁判模型（默认 Gemini 3 Flash）
   python scripts/evaluate.py \\
-      --model anthropic/claude-sonnet-4-5 \\
+      --model anthropic/claude-sonnet-4-6 \\
       --type xsct-l --level hard \\
       --api-key sk-or-xxx \\
-      --judge-model anthropic/claude-sonnet-4-5 \\
+      --judge-model anthropic/claude-sonnet-4-6 \\
       --judge-api-key sk-or-yyy
         """,
     )
